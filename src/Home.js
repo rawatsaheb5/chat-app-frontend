@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import socket from "./Socket";
+import socket, { useSocket } from "./Socket";
 import Chat from "./Chat";
+import "./home.css";
 const Home = () => {
-  const [allMessage, setAllMessage] = useState([]);
+  const { allMessage, setAllMessage, socket } = useSocket();
 
-  
   useEffect(() => {
     socket.on("connect", () => {
       console.log("user connected");
     });
 
     socket.on("message-from-server", (message) => {
-      setAllMessage((previousMessage)=> [...previousMessage, message])
+      setAllMessage((previousMessage) => [...previousMessage, message]);
     });
     return () => {
       socket.off("disconnect", () => {
@@ -19,23 +19,33 @@ const Home = () => {
       });
     };
   }, []);
-  console.log(allMessage)
+  console.log(allMessage);
 
   return (
-    <div>
-      <h1>Chat App</h1>
-      <Chat />
-      <div>
-        <h2>Message box</h2>
-        {allMessage.length > 0 && allMessage.map((item, ind) => {
-          return (
-            <h4 key={ind}>{item}</h4>
-          )
-        })}
+    <div className="container">
+      <h1 className="title">Chat App</h1>
+      <div className="chat-box">
+        <div className="message-container">
+          {allMessage.length > 0 &&
+            allMessage.map((item, ind) => {
+              return (
+                <h6
+                  className={
+                    item.id === socket.id
+                      ? "display-message-right"
+                      : "display-message-left"
+                  }
+                  key={ind}
+                >
+                  {item.message}
+                </h6>
+              );
+            })}
+        </div>
+        <Chat />
       </div>
     </div>
-  )
-  
+  );
 };
 
 export default Home;

@@ -1,4 +1,19 @@
-import io from 'socket.io-client'
-const socket = io('http://localhost:5000');
+import { createContext, useContext, useState } from "react";
+import io from "socket.io-client";
 
-export default socket;
+const socketContext = createContext(null);
+const socket = io("http://localhost:5000");
+export const SocketProvider = ({ children }) => {
+  
+  const [allMessage, setAllMessage] = useState([]);
+
+  return (
+    <socketContext.Provider value={{ allMessage, setAllMessage, socket }}>
+      {children}
+    </socketContext.Provider>
+  );
+};
+
+export const useSocket = () => {
+  return useContext(socketContext);
+};
