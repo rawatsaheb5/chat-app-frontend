@@ -1,0 +1,9 @@
+.right-side-bar{
+
+    width: 100%;
+    height: 100%;
+    background-color:#3C3D37;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

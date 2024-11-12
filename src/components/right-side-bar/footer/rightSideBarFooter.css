@@ -1,0 +1,42 @@
+.right-side-bar-footer {
+  max-width: 100%;
+  height: 60px;
+  background-color:#3C3D37;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-side-bar-footer-left-icon-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 0 0 80px; /* Fixed width of 100px */
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.right-side-bar-footer-middle-div {
+  flex: 1 1 auto; /* Takes up remaining space */
+  display: flex; /* Make middle div a flex container */
+}
+
+.right-side-bar-footer-middle-div-input {
+  flex: 1; /* Input takes full width of middle div */
+  width: 100%; /* Ensures full width coverage */
+  border: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: #3C3D37;
+  color: aliceblue;
+  box-sizing: border-box; /* Include padding in input width */
+}
+
+.right-side-bar-footer-right-icon-group {
+  flex: 0 0 50px; /* Fixed width of 50px */
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
