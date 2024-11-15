@@ -28,7 +28,6 @@ const LeftSideBar = () => {
     }
   };
 
-
   useEffect(() => {
     getAllUserToChat();
   }, []);

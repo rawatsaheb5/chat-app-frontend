@@ -13,8 +13,9 @@ const Card = ({ name, _id }) => {
   const token = localStorage.getItem("authToken");
   const handleGetAllChatMessagesOfTheUser = async () => {
     try {
+     
       const response = await axios.get(
-        `http://localhost:8000/api/message/get-all-message/${selectedUserToChat._id}`,
+        `http://localhost:8000/api/message/get-all-message/${_id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // Setting the token in the header
