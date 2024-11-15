@@ -2,4 +2,6 @@
     background-color: #507687;
     width: 100%;
     height: calc(100% - 120px);
+    overflow-y: auto;  /* Vertical scroll only */
+    overflow-x: hidden; /* Hides horizontal scroll */
 }

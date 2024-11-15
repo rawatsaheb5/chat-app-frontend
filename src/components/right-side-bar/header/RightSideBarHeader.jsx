@@ -2,7 +2,10 @@ import React from "react";
 import "./rightSideBarHeader.css";
 import { FiVideo } from "react-icons/fi";
 import { MdCall } from "react-icons/md";
+import { useSelectUserToChat } from "../../../context/SelectUser";
 const RightSideBarHeader = () => {
+
+  const { selectedUserToChat, setSelectedUserToChat } = useSelectUserToChat();
   return (
     <div className="right-side-bar-header">
       <div className="right-side-bar-header-left-div">
@@ -11,7 +14,7 @@ const RightSideBarHeader = () => {
           src="https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"
         />
         <span className="right-side-bar-header-span">
-          <h4 className="right-side-bar-header-h4">Neeraj</h4>
+          <h4 className="right-side-bar-header-h4">{selectedUserToChat.name || "Neeraj"}</h4>
           <p className=" right-side-bar-header-p">online</p>
         </span>
       </div>

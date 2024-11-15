@@ -32,6 +32,7 @@ const Login = () => {
         name: response.data.name,
         email: response.data.email,
         gender: response.data.gender,
+        _id: response.data._id,
       };
       localStorage.setItem("user", JSON.stringify(user));
       setAuth(true);

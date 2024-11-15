@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './messageType.css'
 import { IoPersonAdd } from "react-icons/io5";
 import AddUserToChat from '../modal/AddUserToChat';
-const MessageType = () => {
+const MessageType = ({getAllUserToChat}) => {
 
 
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +13,7 @@ const MessageType = () => {
           <button className='message-type-btn'>Message</button>
           <button className='message-type-btn'>Group message</button>
           <IoPersonAdd style={{ fontSize: '24px', color: "#FFFFFF" }} onClick={openModal} />
-          <AddUserToChat showModal={showModal} closeModal = {closeModal} />
+          <AddUserToChat getAllUserToChat = {getAllUserToChat} showModal={showModal} closeModal = {closeModal} />
     </div>
   )
 }
